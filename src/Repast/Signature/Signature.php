@@ -1,0 +1,81 @@
+<?php
+
+namespace KeRuYun\Repast\Signature;
+
+use KeRuYun\Kernel\ServiceContainer;
+
+class Signature
+{
+    /**
+     * Signature constructor.
+     * @param ServiceContainer $app
+     */
+    public function __construct(ServiceContainer $app)
+    {
+        $this->app = $app;
+    }
+
+    /**
+     * 生成签名
+     *
+     * @return string
+     */
+    public function signature(): string
+    {
+        $str = [
+            'appKey',
+            $this->app['config']['appkey'],
+            'shopIdenty',
+            $this->app['config']['shopIdenty'],
+            'timestamp',
+            $this->app['config']['timestamp'],
+            'version',
+            $this->app['config']['version'],
+            $this->app['config']['token']
+        ];
+
+        return $this->sha256($str);
+    }
+
+    /**
+     * 验证签名
+     *
+     * @param string $appKey
+     * @param int $shopIdenty
+     * @param int $timestamp
+     * @param string $version
+     * @param string $signature
+     * @return bool
+     */
+    public function verifySign(string $appKey, int $shopIdenty, int $timestamp, string $version, string $signature): bool
+    {
+        $str = [
+            'appKey',
+            $appKey,
+            'shopIdenty',
+            $shopIdenty,
+            'timestamp',
+            $timestamp,
+            'version',
+            $version,
+            $this->app['config']['token']
+        ];
+
+        return $signature === $this->sha256($str);
+    }
+
+    /**
+     * sha256加密
+     *
+     * @param $str
+     * @return string
+     */
+    protected function sha256($str): string
+    {
+        if (is_array($str)) {
+            $str = implode($str);
+        }
+
+        return hash('sha256', $str);
+    }
+}
