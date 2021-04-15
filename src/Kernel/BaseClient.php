@@ -57,7 +57,7 @@ class BaseClient
                 throw new KeRuYunException('请求客如云接口失败');
             }
 
-            return $result;
+            return $result['result'];
         } catch (\Exception $e) {
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }

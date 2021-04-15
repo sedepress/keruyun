@@ -40,7 +40,7 @@ class Token
         if ($token = $cache->get($cacheKey)) {
             return $token;
         }
-        $token = $this->app->base->getToken()['result']['token'];
+        $token = $this->app->base->getToken()['token'];
         $this->setToken($cacheKey, $token);
 
         return $token;
