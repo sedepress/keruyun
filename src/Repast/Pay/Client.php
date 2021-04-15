@@ -15,6 +15,7 @@ class Client extends BaseClient
      * @param string $payOrg 支付机构代码：详见支付机构代码
      * @param string $productDesc 订单商品描述
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function scanCode(string $outTradeNo, int $payFee, string $payOrg = Dict::ORG_ALIPAY, string $productDesc = '商品描述')
     {
@@ -37,6 +38,7 @@ class Client extends BaseClient
      * @param string $payOrg 支付机构代码：详见支付机构代码
      * @param string $productDesc 订单商品描述
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function showCode(string $authCode, string $outTradeNo, int $payFee, string $payOrg = Dict::ORG_ALIPAY, string $productDesc = '商品描述')
     {
@@ -56,6 +58,7 @@ class Client extends BaseClient
      *
      * @param string $outTradeNo 支付单号
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function payQuery(string $outTradeNo)
     {
@@ -73,6 +76,7 @@ class Client extends BaseClient
      * @param string $outRefundNo 调用方退款单号
      * @param string $outTradeNo 支付单号
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function refundApply(int $refundFee, string $outRefundNo, string $outTradeNo)
     {
@@ -91,6 +95,7 @@ class Client extends BaseClient
      * @param string $outRefundNo 调用方退款单号
      * @param string $outTradeNo 支付单号
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function refundQuery(string $outRefundNo, string $outTradeNo)
     {

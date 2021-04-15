@@ -2,6 +2,9 @@
 
 namespace KeRuYun\Kernel;
 
+/*
+ * 客如云数据字典
+ */
 class Dict
 {
     const ORDER_PUSH_CREATE = 1;

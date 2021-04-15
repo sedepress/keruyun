@@ -17,6 +17,7 @@ class Client extends BaseClient
      * @param int $pageSize 每页条数；取值范围10~100,不传默认100
      * @param int $timeType 时间类型；默认下单时间；1-下单时间；2-支付时间；推荐使用支付时间(返回值当中的checkOutTime)作为分页参数，这样会降低查询靠近当前时间的订单的丢单几率
      * @return mixed
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function getOrderIdList(int $shopIdenty, int $startTime, int $endTime, int $pageNo = 1, int $pageSize = 100, int $timeType = Dict::TIME_TYPE_PAY)
     {
@@ -38,6 +39,7 @@ class Client extends BaseClient
      * @param array $ids 客如云订单号（tradeId，可通过订单列表获取，也可通过下单接口返回的参数中获取）,最多20条
      * @param int $shopIdenty 客如云门店
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function getOrderDetailList(array $ids, int $shopIdenty)
     {

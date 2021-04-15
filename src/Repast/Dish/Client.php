@@ -13,6 +13,7 @@ class Client extends BaseClient
      * @param int $pageNum 开始记录ID(默认1),下一页需带上返回参数中startId的值，返回参数中startId为null表示无下一页
      * @param int $startId 每页最大记录数(默认1000)
      * @return mixed|null
+     * @throws \KeRuYun\Kernel\Exceptions\HttpException
      */
     public function dishMenu(int $shopIdenty, int $pageNum = 1000, int $startId = 1)
     {

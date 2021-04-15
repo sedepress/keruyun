@@ -1,6 +1,6 @@
 <?php
 
-namespace KeRuYun\Repast\Signature;
+namespace KeRuYun\Repast\Token;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
@@ -12,7 +12,7 @@ class ServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $app)
     {
-        !isset($app['signature']) && $app['signature'] = function ($app) {
+        !isset($app['token']) && $app['token'] = function ($app) {
             return new Token($app);
         };
     }

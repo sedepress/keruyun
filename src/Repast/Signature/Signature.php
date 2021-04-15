@@ -7,6 +7,11 @@ use KeRuYun\Kernel\ServiceContainer;
 class Signature
 {
     /**
+     * @var \KeRuYun\Kernel\ServiceContainer
+     */
+    protected $app;
+
+    /**
      * Signature constructor.
      * @param ServiceContainer $app
      */
@@ -18,9 +23,11 @@ class Signature
     /**
      * 生成签名
      *
+     * @param int $timestamp
+     * @param bool $isToken
      * @return string
      */
-    public function signature(): string
+    public function signature(int $timestamp, bool $isToken = false): string
     {
         $str = [
             'appKey',
@@ -28,10 +35,10 @@ class Signature
             'shopIdenty',
             $this->app['config']['shopIdenty'],
             'timestamp',
-            $this->app['config']['timestamp'],
+            $timestamp,
             'version',
             $this->app['config']['version'],
-            $this->app['config']['token']
+            $isToken ? $this->app['config']['secretKey'] : $this->app->token->getToken($this->app['config']['shopIdenty'])
         ];
 
         return $this->sha256($str);

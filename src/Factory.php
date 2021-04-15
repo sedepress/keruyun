@@ -13,7 +13,7 @@ class Factory
      * @param string $name
      * @param array  $config
      *
-     * @return \EasyWeChat\Kernel\ServiceContainer
+     * @return \KeRuYun\Kernel\ServiceContainer
      */
     public static function make($name, array $config)
     {

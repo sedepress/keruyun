@@ -7,14 +7,6 @@ use Pimple\Container;
 
 /**
  * Class ServiceContainer.
- *
- * @author overtrue <i@overtrue.me>
- *
- * @property \EasyWeChat\Kernel\Config                          $config
- * @property \Symfony\Component\HttpFoundation\Request          $request
- * @property \GuzzleHttp\Client                                 $http_client
- * @property \Monolog\Logger                                    $logger
- * @property \Symfony\Component\EventDispatcher\EventDispatcher $events
  */
 class ServiceContainer extends Container
 {
@@ -73,7 +65,7 @@ class ServiceContainer extends Container
             // http://docs.guzzlephp.org/en/stable/request-options.html
             'http' => [
                 'timeout' => 30.0,
-                'base_uri' => 'https://api.weixin.qq.com/',
+                'base_uri' => '',
             ],
         ];
 
