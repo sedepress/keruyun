@@ -15,7 +15,7 @@ class Factory
      *
      * @return \KeRuYun\Kernel\ServiceContainer
      */
-    public static function make($name, array $config)
+    public static function make(string $name, array $config)
     {
         $namespace = Kernel\Support\Str::studly($name);
         $application = "\\KeRuYun\\{$namespace}\\Application";
