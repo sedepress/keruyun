@@ -3,7 +3,7 @@
 namespace KeRuYun\Tests;
 
 use KeRuYun\Factory;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class KeRuYunTest extends TestCase
 {
@@ -17,15 +17,6 @@ class KeRuYunTest extends TestCase
             'shopIdenty' => 80123123123
         ]);
 
-        var_dump($app->signature->signature());
-
-        $params = [
-            'ids' => [467903517882867712],
-            'shopIdenty' => 810094162
-        ];
-
-        $data = $app->order->getOrderDetailList($params);
-
-        var_dump($data);
+        var_dump($app->signature->signature(time() * 1000));
     }
 }

@@ -13,7 +13,7 @@ class ServiceProvider implements ServiceProviderInterface
     public function register(Container $app)
     {
         !isset($app['signature']) && $app['signature'] = function ($app) {
-            return new Token($app);
+            return new Signature($app);
         };
     }
 }

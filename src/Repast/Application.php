@@ -12,7 +12,7 @@ use KeRuYun\Kernel\ServiceContainer;
  * @property \KeRuYun\Repast\Dish\Client            $dish
  * @property \KeRuYun\Repast\Order\Client           $order
  * @property \KeRuYun\Repast\Pay\Client             $pay
- * @property \KeRuYun\Repast\Signature              $signature
+ * @property \KeRuYun\Repast\Signature\Signature    $signature
  */
 class Application extends ServiceContainer
 {

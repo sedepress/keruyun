@@ -78,7 +78,7 @@ class BaseClient
             'shopIdenty' => $this->app->config['shopIdenty'],
             'version' => $this->app->config['version'],
             'timestamp' => $timestamp,
-            'sign' => $this->app->signaure->siguature($timestamp, $isToken)
+            'sign' => $this->app->signature->signature($timestamp, $isToken)
         ];
 
         return $this->app->config['baseUri'] . $uri . '?' . http_build_query($query);
