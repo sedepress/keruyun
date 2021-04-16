@@ -65,7 +65,7 @@ class Signature
             $timestamp,
             'version',
             $version,
-            $this->app['config']['token']
+            $this->app->token->getToken($this->app['config']['shopIdenty'])
         ];
 
         return $signature === $this->sha256($str);
