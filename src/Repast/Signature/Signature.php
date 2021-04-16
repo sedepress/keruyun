@@ -31,7 +31,7 @@ class Signature
     {
         $str = [
             'appKey',
-            $this->app['config']['appkey'],
+            $this->app['config']['appKey'],
             'shopIdenty',
             $this->app['config']['shopIdenty'],
             'timestamp',
