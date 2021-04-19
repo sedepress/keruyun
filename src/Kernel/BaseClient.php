@@ -38,6 +38,7 @@ class BaseClient
     {
         $url = $this->getRequestUrl($uri, time() * 1000, $options['isToken'] ?? false);
 
+        logger()->debug('请求客如云API', ['url' => $url, 'data' => $data]);
         try {
             switch (strtolower($method))
             {
