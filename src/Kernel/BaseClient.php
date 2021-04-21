@@ -55,7 +55,7 @@ class BaseClient
 
             if ($result['code'] != 0) {
                 logger()->error('客如云接口请求失败', ['url' => $url, 'result' => $result]);
-                throw new KeRuYunException('请求客如云接口失败');
+                throw new KeRuYunException($result['message']);
             }
 
             return $result['result'];
